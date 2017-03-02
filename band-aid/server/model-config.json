@@ -33,7 +33,7 @@
     "public": false
   },
   "album": {
-    "dataSource": "db",
+    "dataSource": "cloudantDB",
     "public": true
   }
 }
