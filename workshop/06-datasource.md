@@ -112,4 +112,4 @@ This file needs to exist for the application to run, so we can either make it an
 
 Okay, now that we have our secrets hidden, let's move on.
 
-**Next Step:** [Connect a datasource](06-datasource.md)
+**Next Step:** [More Models](07-more-models.md)
