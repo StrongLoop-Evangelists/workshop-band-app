@@ -15,7 +15,7 @@ In this step, we need to go into the Bluemix site and from the Cloud Foundry sec
 
 ![Bluemix - Create Node.js app](assets/create-nodejs-app.png)
 
-_Note: take notice of the org and space you created this app in. It is likely you only have one of each, but it is not uncommon to have more than one of one or the other._
+*Note: take notice of the org and space you created this app in. It is likely you only have one of each, but it is not uncommon to have more than one of one or the other.*
 
 The page that is presented after creating our Node.js app shows your app starting up. We can now switch back to the terminal and our editor.
 
@@ -179,7 +179,7 @@ buildpack: SDK for Node.js(TM) (ibm-node.js-4.7.2, buildpack-v3.10-20170119-1146
 #0   running   2017-02-28 05:16:58 PM   0.0%   117.7M of 256M   140.4M of 1G
 ```
 
-At this point, our app is in the cloud and we can visit the app at the urls stated in the output above: `urls: band-aid.mybluemix.net` (_your url may be slightly different_)
+At this point, our app is in the cloud and we can visit the app at the urls stated in the output above: `urls: band-aid.mybluemix.net` (*your url may be slightly different*)
 
 ## Show our app status `cf apps`
 
@@ -195,4 +195,3 @@ band-aid   started           1/1         256M     1G     band-aid.mybluemix.net
 ```
 
 **Next Step:** [Connect a datasource](06-datasource.md)
-
