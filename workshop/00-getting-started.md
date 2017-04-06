@@ -2,7 +2,7 @@
 
 LoopBack is a framework to rapidly build RESTful APIs in Node.js.  It uses a command line interface (CLI) to scaffold your application and build out your API layer. It is fast and easy, but robust and extensible. It is built on top of Express, so it has widely-used and very stable foundation. It is so awesome, it is almost magical. Let me show you:
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/iOMD27DjuO4" frameborder="0" allowfullscreen></iframe>
+[![Rapid APIs in LoopBack](assets/video.png)](https://youtu.be/iOMD27DjuO4 "Rapid APIs in LoopBack")
 
 ## Prerequisites
 
