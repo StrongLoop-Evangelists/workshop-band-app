@@ -49,7 +49,7 @@ First thing to notice is that this file resides in the `models/common` directory
 
 **Additional options:** These final object keys have empty values. We can tell by their names what they may pertain to but we'll explore them later in the workshop.
 
-## Model hooks
+## Remote hooks
 
 `/models/common/product.js`
 
