@@ -104,7 +104,7 @@ We will begin with the `title` property.
 ### Model property: type
 
 ```
-? Property name: album
+? Property name: title
    invoke   loopback:property
 ? Property type: (Use arrow keys)
 ❯ string
@@ -117,12 +117,12 @@ We will begin with the `title` property.
 (Move up and down to reveal more choices)
 ```
 
-The type of our `album` property will be `string` in this case, but as we can see, there are many options. Having the type set for our properties is important when doing validation, which we will visit later.
+The type of our `title` property will be `string` in this case, but as we can see, there are many options. Having the type set for our properties is important when doing validation, which we will visit later.
 
 ### Model property: required
 
 ```
-? Property name: album
+? Property name: title
    invoke   loopback:property
 ? Property type: string
 ? Required? (y/N)
@@ -133,7 +133,7 @@ We will make our `title` property required as it is an important piece of inform
 ### Model property: default value
 
 ```
-? Property name: album
+? Property name: title
    invoke   loopback:property
 ? Property type: string
 ? Required? Yes
@@ -150,7 +150,7 @@ As we can see from the terminal output, when we are done, we can simply hit ente
 Let's add some album properties now.
 
 Enter an empty property name when done.
-? Property name: album
+? Property name: title
    invoke   loopback:property
 ? Property type: string
 ? Required? Yes
