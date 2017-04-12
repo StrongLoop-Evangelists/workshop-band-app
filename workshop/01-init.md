@@ -1,7 +1,7 @@
 # Let's initialize our LoopBack application
 
 
-We can initialize a LoopBack application in our terminal by typing `lb` or `lb app` and this will invoke the generator. The generator will go through a series of prompts to scaffold out our LoopBack application. Let's get started.
+We can initialize a LoopBack application in our terminal by typing `lb` or `lb app` and this will invoke the generator. The generator will go through a series of prompts to scaffold our LoopBack application. Let's get started.
 
 ### What's the name of your application?
 
@@ -21,13 +21,12 @@ We can initialize a LoopBack application in our terminal by typing `lb` or `lb a
 ? What's the name of your application? (workshop-band-app)
 ```
 
-The first step is to name the application. Let's call this application `band-aid`.
+The first step is to name our application. Let's call it: `band-app`.
 
 ### Enter name of the directory to contain the project:
 
 ```
-? What's the name of your application? band-aid
-? Enter name of the directory to contain the project: (band-aid)
+? Enter name of the directory to contain the project: (band-app)
 ```
 
 In this step, we are simply choosing the name of the directory that we are going to build out the application into. By default, it assumes we would like to create a new directory with the same name as the application that we have given in the previous step. So let's hit enter and let the generator do its work.
@@ -35,10 +34,9 @@ In this step, we are simply choosing the name of the directory that we are going
 **Outputs:**
 
 ```
-? What's the name of your application? band-aid
-? Enter name of the directory to contain the project: band-aid
-   create band-aid/
-     info change the working directory to band-aid
+? Enter name of the directory to contain the project: band-app
+   create band-app/
+     info change the working directory to band-app
 ```
 
 _Note: If we want to name our directory something else, we can do so in this step. If we had already created a directory with the same name as our application---we are working from that directory---LoopBack will detect this and we could simply hit enter._
@@ -47,11 +45,6 @@ _Note: If we want to name our directory something else, we can do so in this ste
 ### Which version of LoopBack would you like to use?
 
 ```
-? What's the name of your application? band-aid
-? Enter name of the directory to contain the project: band-aid
-   create band-aid/
-     info change the working directory to band-aid
-
 ? Which version of LoopBack would you like to use? (Use arrow keys)
   2.x (long term support)
 ❯ 3.x (current)
@@ -64,12 +57,6 @@ _Note: While LoopBack version 2 is still being supported, it is advised to use t
 ### What kind of application do you have in mind?
 
 ```
-? What's the name of your application? band-aid
-? Enter name of the directory to contain the project: band-aid
-   create band-aid/
-     info change the working directory to band-aid
-
-? Which version of LoopBack would you like to use? 3.x (current)
 ? What kind of application do you have in mind? (Use arrow keys)
 ❯ api-server (A LoopBack API server with local User auth)
   empty-server (An empty LoopBack API, without any configured models or datasources)
@@ -94,10 +81,10 @@ _Protip: in the command line, we can type `j` or `k` to navigate up or down._
 ### Scaffolding application and running `npm install`
 
 ```
-? What's the name of your application? band-aid
-? Enter name of the directory to contain the project: band-aid
-   create band-aid/
-     info change the working directory to band-aid
+? What's the name of your application? band-app
+? Enter name of the directory to contain the project: band-app
+   create band-app/
+     info change the working directory to band-app
 
 ? Which version of LoopBack would you like to use? 3.x (current)
 ? What kind of application do you have in mind? api-server (A LoopBack API server with local User auth)
@@ -130,7 +117,7 @@ Once the installation of external modules is complete, we will see a listing of 
 Next steps:
 
   Change directory to your app
-    $ cd band-aid
+    $ cd band-app
 
   Create a model in your app
     $ lb model
