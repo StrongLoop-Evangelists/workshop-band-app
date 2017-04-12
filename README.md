@@ -1,4 +1,4 @@
-# Workshop: Band-Aid
+# Workshop: Band-App
 
 _WIP_
 
