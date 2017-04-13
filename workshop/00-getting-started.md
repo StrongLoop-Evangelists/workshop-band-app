@@ -32,22 +32,24 @@ This should also yield a version number; anything greater than 3 is preferable. 
 
 #### LoopBack CLI
 
-Once we have confirmed we have Node.js and NPM, let's install LoopBack if we haven't already:
+Once we have confirmed we have Node.js and NPM, let's install the LoopBack CLI:
 
-Check if LoopBack is installed:
+```
+npm install -g loopback-cli
+```
+
+This will install the LoopBack CLI globally (`-g`) to your machine so you can start a LoopBack application in any directory you choose.
+
+Now confirm it's installed:
 
 ```
 ✗ lb --version
 1.0.1 (generator-loopback@2.3.0)
 ```
 
-This should yield a version number for the loopback cli. Any version number should do. If you do not have LoopBack installed, run the following command to install the LoopBack CLI:
+This should show a version number for the LoopBack CLI. Any version number should do. 
 
-`npm install -g loopback-cli`
-
-This will install LoopBack globally (`-g`) to your machine so you can start a LoopBack application in any directory you choose.
-
-Once you have LoopBack installed, typing `lb --help` will output all sorts of helpful information:
+Type `lb --help` to show all sorts of helpful information:
 
 ```
 ✗ lb --help
@@ -96,6 +98,7 @@ Available commands:
   lb relation
   lb remote-method
   lb swagger
+  lb soap
 ```
 
 Note those 'Availalbe commands'. We will begin using a number of them shortly.
