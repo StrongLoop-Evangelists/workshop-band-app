@@ -107,9 +107,11 @@ I'm all done. Running npm install for you to install the required dependencies. 
    create client/README.md
 ```
 
-At this point, our application has been scaffolded and the generator runs `npm install` to retrieve all of our external dependences. This may take a moment, depending on internet connection. Do not be alarmed by the many modules that are installed: to reduce duplication of effort, Node.js has a large ecosystem of many small modules. The node package manager, npm, handles these modules in a smart and efficient manner.
+For an explanation of all the files and directories that the tool creates, see [Project layout reference](http://loopback.io/doc/en/lb3/Project-layout-reference.html) in the LoopBack documentation.
 
-Once the installation of external modules is complete, we will see a listing of these modules in a tree structure.
+At this point, the tool has scaffolded our application.  Then it runs `npm install` to install all of the application's external dependences. This may take a moment, depending on internet connection. Do not be alarmed by the many modules that are installed: to reduce duplication of effort, Node.js has a large ecosystem of many small modules. The Node package manager, npm, handles these modules in a smart and efficient manner.
+
+Once the tool finishes installation of external modules, we will see a listing of these modules in a tree structure.
 
 ### Handy next steps for our convenience
 
