@@ -1,10 +1,10 @@
 # Create our first model-driven API endpoint
 
-LoopBack takes a model-driven approach to building out APIs. Based on our responses to the command line prompts, it will create a JSON file with our model schema and details.
+LoopBack takes a model-driven approach to building out APIs. Based on our responses to the command line prompts, it will create a JSON file with our model schema and details.  For an introduction to LoopBack models see [LoopBack core concepts -  Models](http://loopback.io/doc/en/lb3/LoopBack-core-concepts.html#models) in the LoopBack documentation.
 
 To invoke the generator, we type `lb model` and go through the list of prompts.
 
-_Note: `cd` into your working directory, if you haven't already_
+_Note: `cd` into your working directory, if you haven't already._
 
 ### Enter the name of your model
 
@@ -17,7 +17,10 @@ We'll call our first model while building our marketplace app `Album`.
 
 _Note: models should be singular. The application handles plural naturally, as we'll see in an upcoming step._
 
-### Select the data-source
+### Select the data source
+
+LoopBack generalizes backend services such as databases, REST APIs, SOAP web services, and storage services as data sources.
+A _connector_ enables LoopBack applications to use a given data source.  For more information, see [LoopBack core concepts - Data sources and connectors](http://loopback.io/doc/en/lb3/LoopBack-core-concepts.html#data-sources-and-connectors).
 
 ```
 ? Enter the model name: album
@@ -26,9 +29,11 @@ _Note: models should be singular. The application handles plural naturally, as w
   (no data-source)
 ```
 
-LoopBack has connectors for many, many data-sources. The most common ones are supported by the StrongLoop team and there is a plethora of community supported connectors for the less common data-sources. Later in the workshop, we will add a conventional data-source, for the time being, let's just use the in-memory data-source.
+LoopBack has connectors for many, many data sources. StrongLoop and IBM support many of the [most popular data sources](http://loopback.io/doc/en/lb3/Connectors-reference.html) and there is also a plethora of [community-supported connectors](http://loopback.io/doc/en/lb3/Community-connectors.html) for others. 
 
-_Note: an issue with using the in-memory data-source is that every time we shut down our application, we will lose all our data. Again, using the in-memory data-source is only for testing and prototyping. Later in this section, we will look at persisting your in-memory data to a file. And in an upcoming step, we will add a conventional data-source._
+Later in the workshop, we will add a conventional data source, for the time being, let's just use the [in-memory data-source](http://loopback.io/doc/en/lb3/Memory-connector.html).
+
+_Note: An issue with using the in-memory data-source is that every time we shut down our application, we will lose all our data. Again, using the in-memory data-source is only for testing and prototyping. Later in this section, we will look at persisting your in-memory data to a file. And in an upcoming step, we will add a conventional data-source._
 
 ### Select model's base class:
 
@@ -46,7 +51,7 @@ _Note: an issue with using the in-memory data-source is that every time we shut 
 (Move up and down to reveal more choices)
 ```
 
-The base class for a model is the object that this model will extend from. There are a number of base model classes and each has a specific purpose. We will choose the `Persisted Model` because we will eventually want the persistence functionality: we'll get that "for free" with this choice.
+The base class for a model is the object that this model will extend from. There are a number of base model classes and each has a specific purpose. We will choose the `PersistedModel` because we will eventually want the persistence functionality: we'll get that "for free" with this choice.
 
 ### Expose `<model>` via the REST API?
 
@@ -57,7 +62,7 @@ The base class for a model is the object that this model will extend from. There
 ? Expose album via the REST API? (Y/n)
 ```
 
-There may be reasons for keeping your endpoint private, but for the sake of this workshop, we will expose our REST API endpoints for public consumption. We will look at securing endpoints later in the workshop.
+There may be reasons for keeping an endpoint private, but for the sake of this workshop, we will expose our REST API endpoints for public consumption. We will look at securing endpoints later in the workshop.
 
 ### Custom plural form
 
@@ -69,7 +74,7 @@ There may be reasons for keeping your endpoint private, but for the sake of this
 ? Custom plural form (used to build REST URL):
 ```
 
-LoopBack is very smart about handling plural forms of a model. In this case, `album` is easily made plural as `albums`, but it can also handle other common plurals such as `child` to `children` and `mouse` to `mice`. If you have an unconventional model name that isn't easily made plural by adding an `s` then you may need to take advantage of this feature. Most cases, we can let LoopBack do its magic.
+LoopBack is very smart about handling plural forms of a model. In this case, `album` is easily made plural as `albums`, but it can also handle other common plurals such as `child` to `children` and `mouse` to `mice`. If you have an unconventional model name that isn't easily made plural by adding an `s` then you may need to take advantage of this feature. Most of the time, you can let LoopBack do its magic.
 
 ### Common model or server only?
 
@@ -88,7 +93,7 @@ We can choose to only have this model available to the server or we can make it 
 
 ## Let's add some properties now!
 
-Now that we have our model config in place, we will move on to specific model properties. The prompts will guide us, and as you'll see, after your last property is captured, you can hit enter and it will exit the prompt.
+Now that we have our model configuration in place, we will move on to specific model properties. The prompts will guide us, and as you'll see, after your last property is captured, you can hit enter and it will exit the prompt.
 
 ### Model property: name
 
@@ -144,7 +149,7 @@ We will leave our default value blank here. If the property were not required, w
 
 ### Next model property
 
-As we can see from the terminal output, when we are done, we can simply hit enter when prompted for another property. In our case though, we have a few more properties to add. Here is the output from adding all of our model's properties:
+As we can see from the terminal output, when we are done, we can simply hit `Enter` when prompted for another property. In our case though, we have a few more properties to add. Here is the output from adding all of our model's properties:
 
 ```
 Let's add some album properties now.
@@ -194,8 +199,8 @@ Enter an empty property name when done.
 ? Property name:
 ```
 
-_Note: we need our tracks property to be an array. In doing so, LoopBack asked us what type of items will be in our array._
+_Note: we need our 'tracks' property to be an array. In doing so, LoopBack asked us what type of items will be in our array._
 
-Once we are done adding our properties, we hit `<enter>` and the prompt will exit.
+Once we are done adding our properties, we hit `Enter` and the CLI will exit.
 
 **Next Step:** [Model files: config and hooks](03-model-files.md)
