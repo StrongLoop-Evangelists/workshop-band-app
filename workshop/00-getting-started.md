@@ -1,6 +1,6 @@
 ## What is LoopBack?
 
-LoopBack is an open-source framework to rapidly build RESTful APIs in Node.js.  It uses a command line interface (CLI) to scaffold your application and build out your API layer based on your data (a model-driven approach). It isn't just fast and easy; it's also robust and extensible. It is built on top of Express, so it has widely-used and battle-tested foundation.
+LoopBack is an open-source framework to rapidly build RESTful APIs in Node.js.  It has a command line interface (CLI) tool that you can use to scaffold your application and build out your API layer based on your data (a model-driven approach). It isn't just fast and easy; it's also robust and extensible. It is built on top of Express, so it has widely-used and battle-tested foundation.
 
 **_LoopBack is so awesome, it is almost magical. Let me show you by building an API in 73 seconds:_**
 
@@ -44,7 +44,7 @@ Now confirm it's installed:
 
 ```
 ✗ lb --version
-1.0.1 (generator-loopback@2.3.0)
+2.2.0 (generator-loopback@3.2.0 loopback-workspace@3.40.1)
 ```
 
 This should show a version number for the LoopBack CLI. Any version number should do. 
