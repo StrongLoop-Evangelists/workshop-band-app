@@ -1,10 +1,13 @@
-## What is LoopBack?
+🎦 You can view a video walkthrough of this step here: [What is LoopBack: a demo and how to get started](https://youtu.be/Llr18lNuYIo?list=PLxGLihicw5Woe3SV9MCFooTdrI9eOmj54)
+
+# What is LoopBack?
 
 LoopBack is an open-source framework to rapidly build RESTful APIs in Node.js.  It uses a command line interface (CLI) to scaffold your application and build out your API layer based on your data (a model-driven approach). It isn't just fast and easy; it's also robust and extensible. It is built on top of Express, so it has widely-used and battle-tested foundation.
 
 **_LoopBack is so awesome, it is almost magical. Let me show you by building an API in 73 seconds:_**
 
 [![Rapid APIs in LoopBack](assets/video.png)](https://youtu.be/iOMD27DjuO4 "Rapid APIs in LoopBack")
+
 
 ## Prerequisites
 

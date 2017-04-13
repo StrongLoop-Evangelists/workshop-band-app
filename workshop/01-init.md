@@ -1,3 +1,5 @@
+🎦 You can view a video walkthrough of this step here: [Initializing a LoopBack application](https://www.youtube.com/watch?v=6hFKR5YKrec&list=PLxGLihicw5Woe3SV9MCFooTdrI9eOmj54&index=3)
+
 # Let's initialize our LoopBack application
 
 
@@ -7,17 +9,6 @@ We can initialize a LoopBack application in our terminal by typing `lb` or `lb a
 
 ```
 ➜  workshop-band-app git:(master) lb
-
-     _-----_
-    |       |    ╭──────────────────────────╮
-    |--(o)--|    │  Let's create a LoopBack │
-   `---------´   │       application!       │
-    ( _´U`_ )    ╰──────────────────────────╯
-    /___A___\   /
-     |  ~  |
-   __'.___.'__
- ´   `  |° ´ Y `
-
 ? What's the name of your application? (workshop-band-app)
 ```
 
