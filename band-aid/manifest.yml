@@ -1,6 +1,0 @@
----
-applications:
- - name: band-aid
-   random-route: true
-   memory: 256M
-
