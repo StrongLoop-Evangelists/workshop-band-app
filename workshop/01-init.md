@@ -43,7 +43,7 @@ _Note: If we want to name our directory something else, we can do so in this ste
 
 We will choose the current version of LoopBack, 3.x.
 
-_Note: While LoopBack version 2 is still being supported, it is advised to use the current version of LoopBack (`3.x`) which is chosen by default._
+_Note: While LoopBack version 2 is still being supported, version 3 is the current version and in general you should use it for new applications._
 
 ### What kind of application do you have in mind?
 
@@ -55,7 +55,7 @@ _Note: While LoopBack version 2 is still being supported, it is advised to use t
   notes (A project containing a basic working example, including a memory database)
 ```
 
-The user is presented with 4 options as starting points for scaffolding a LoopBack application.
+We are presented with four options as starting points:
 
 - api-server (A LoopBack API server with local User auth)
 - empty-server (An empty LoopBack API, without any configured models or datasources)
@@ -65,9 +65,9 @@ The user is presented with 4 options as starting points for scaffolding a LoopBa
 
 We will choose the default option as it is useful to have a built-in User model to extend from when building our model for our users.
 
-_Note: as alluded to above, it is best practice to extend base models such as `User` rather than using them directly. If we have multiple objects extending from a base model and we modify a base model, there may be adverse effects on all the models extending it._
+_Note: As alluded to above, it is best practice to extend base models such as `User` rather than using them directly. If we have multiple objects extending from a base model and we modify a base model, there may be adverse effects on all the models extending it._
 
-_Protip: in the command line, we can type `j` or `k` to navigate up or down._
+_Protip: in the command line, type `j` or `k` or &uarr; and &darr; to navigate up or down._
 
 ### Scaffolding application and running `npm install`
 
@@ -98,9 +98,11 @@ I'm all done. Running npm install for you to install the required dependencies. 
    create client/README.md
 ```
 
-At this point, our application has been scaffolded and the generator runs `npm install` to retrieve all of our external dependences. This may take a moment, depending on internet connection. Do not be alarmed by the many modules that are installed: to reduce duplication of effort, Node.js has a large ecosystem of many small modules. NPM, the node package manager, handles these modules in a smart and efficient manner.
+For an explanation of all the files and directories that the tool creates, see [Project layout reference](http://loopback.io/doc/en/lb3/Project-layout-reference.html) in the LoopBack documentation.
 
-Once the installation of external modules is complete, we will see a listing of these modules in a tree structure.
+At this point, the tool has scaffolded our application.  Then it runs `npm install` to install all of the application's external dependences. This may take a moment, depending on internet connection. Do not be alarmed by the many modules that are installed: to reduce duplication of effort, Node.js has a large ecosystem of many small modules. The Node package manager, npm, handles these modules in a smart and efficient manner.
+
+Once the tool finishes installation of external modules, we will see a listing of these modules in a tree structure.
 
 ### Handy next steps for our convenience
 
