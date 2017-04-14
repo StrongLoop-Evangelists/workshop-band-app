@@ -43,9 +43,9 @@ If we open up the details of the `GET` request panel in our explorer, we will se
 
 ![LoopBack API Explorer - GET request response](assets/api-explorer05.png)
 
-In addition to providing some sample request examples (Curl and URL), we also see that the `GET` request is successful with a `200` response, but the response array is empty. That's because we don't have any data! We've only described our data, but we haven't actually added any to our data-source. Let's try adding some data using the `POST` method.
+In addition to providing some sample request examples (Curl and URL), we also see that the `GET` request is successful with a `200` response, but the response array is empty. That's because we don't have any data! We've only described our data, but we haven't actually added any to our data source. Let's try adding some data using the `POST` method.
 
-*Pro tip: if you want to learn more about HTTP responses, you can read more [here](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). One of my personal favorites is `418 - I'm a teapot`.*
+*Pro tip: To learn more about HTTP responses, read more [here](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). One of my personal favorites is `418 - I'm a teapot`.*
 
 ### A POST call - add some data
 
@@ -65,11 +65,11 @@ If we scroll the page down the list of HTTP verbs, we will see a few POST option
 }
 ```
 
-We should notice that `id` key/value in the data is removed. If we send an `id`, we may get an error because that field is managed by the data-source. After entering this data into the text field, we can click the 'Try it out!' button to `POST` this data to the endpoint.
+Notice that `id` key/value in the data is removed. If we send an `id`, we may get an error because that field is managed by the data source. After entering this data into the text field, we can click the 'Try it out!' button to `POST` this data to the endpoint.
 
 ![LoopBack API Explorer - POST method response](assets/api-explorer07.png)
 
-We'll notice that the request is successful: we get a `200` response and the response body includes the data we sent with an actual `id` returned. To verify the successful `POST`, let's go back to the `GET` request and "Try it out!"
+If the request is successful (as it should be), we get a `200` response and the response body includes the data we sent with an actual `id` returned. To verify the successful `POST`, go back to the `GET` request and "Try it out!"
 
 ![LoopBack API Explorer - GET method with data](assets/api-explorer08.png)
 
