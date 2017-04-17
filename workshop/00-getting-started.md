@@ -13,7 +13,7 @@
 
 #### Node.js and NPM
 
-As mentioned previously, we will need Node.js installed on our local machine for development. Included with Node.js is NPM, the Node Package Manager. We will use NPM to install LoopBack in a moment, first lets see if we have Node and NPM:
+As mentioned previously, we will need Node.js installed on our local machine for development. Included with Node.js is NPM, the Node Package Manager. We will use NPM to install LoopBack in a moment, but first lets see if we have Node and NPM:
 
 Check for Node:
 
@@ -104,6 +104,6 @@ Available commands:
   lb soap
 ```
 
-Note those 'Availalbe commands'. We will begin using a number of them shortly.
+Note those 'Available commands'. We will begin using a number of them shortly.
 
 Next Step: [Let's initialize our application](01-init.md).
