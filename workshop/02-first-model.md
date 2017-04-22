@@ -13,7 +13,7 @@ _Note: `cd` into your working directory, if you haven't already._
 ? Enter the model name:
 ```
 
-We'll call our first model while building our marketplace app `Album`.
+We'll call our first model while building our marketplace app `album`.
 
 _Note: models should be singular. The application handles plural naturally, as we'll see in an upcoming step._
 
@@ -29,7 +29,7 @@ A _connector_ enables LoopBack applications to use a given data source.  For mor
   (no data-source)
 ```
 
-LoopBack has connectors for many, many data sources. StrongLoop and IBM support many of the [most popular data sources](http://loopback.io/doc/en/lb3/Connectors-reference.html) and there is also a plethora of [community-supported connectors](http://loopback.io/doc/en/lb3/Community-connectors.html) for others. 
+LoopBack has connectors for many, many data sources. StrongLoop and IBM support many of the [most popular data sources](http://loopback.io/doc/en/lb3/Connectors-reference.html) and there is also a plethora of [community-supported connectors](http://loopback.io/doc/en/lb3/Community-connectors.html) for others.
 
 Later in the workshop, we will add a conventional data source, for the time being, let's just use the [in-memory data-source](http://loopback.io/doc/en/lb3/Memory-connector.html).
 
@@ -171,7 +171,7 @@ Enter an empty property name when done.
 
 Let's add another album property.
 Enter an empty property name when done.
-? Property name: record-label
+? Property name: label
    invoke   loopback:property
 ? Property type: string
 ? Required? No
