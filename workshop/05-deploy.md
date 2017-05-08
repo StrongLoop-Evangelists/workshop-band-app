@@ -1,61 +1,62 @@
 # Deploy
 
-LoopBack is simply a Node.js app, so we can deploy it wherever Node.js is supported. In this step though, we will walk through how to deploy it on Bluemix, IBM's Paas (platform as a service). We will use their Cloud Foundry tools to configure and manage the deployment.
-
+A LoopBack app is simply a Node.js app. For our purposes, we will deploy our code to [Bluemix](https://bluemix.net), IBM's PaaS (platform as a service), but we could deploy it wherever Node.js is supported. If we were to deploy our app to a conventional server, we would need to make sure the tools were in place to keep our app running and able to handle any sort of load it may need to withstand. Fortunately, Bluemix handles all of that for us. And we can use their Cloud Foundry tools to configure and manage the deployment.
 
 ## Create Node.js Cloud Foundry app:
 
-In this step, we need to go into the Bluemix site and from the Cloud Foundry section of their catalog, we will choose to create a Node.js Runtime App. Choosing the default options will do for now.
+In this step, we need to go into the [Bluemix catalog](https://console.ng.bluemix.net/catalog/) and from the Cloud Foundry section we will choose to create a Node.js Runtime App:
 
-**The catalog:**
+![Bluemix - Cloud Foundry Apps](assets/bluemix-catalog-cloud-foundry-apps.png)
 
-![Bluemix - Cloud Foundry Apps](assets/cloud-foundry-apps.png)
+### Create the Node.js app
 
-**Create the Node.js app**
+Choosing the SDK for Node.js takes us to a page where we can name our application as well as choose the Bluemix route to access our app:
 
-![Bluemix - Create Node.js app](assets/create-nodejs-app.png)
+![Bluemix - Create Node.js app](assets/bluemix-create-node-starter.png)
 
-*Note: take notice of the org and space you created this app in. It is likely you only have one of each, but it is not uncommon to have more than one of one or the other.*
+*Note: take notice of the org and space you created this app in on Bluemix. It is likely you only have one of each, but it is not uncommon to have more than one of one or the other. Which org/space you are currently in is where the app will be created.*
 
-The page that is presented after creating our Node.js app shows your app starting up. We can now switch back to the terminal and our editor.
+The next page presented to us after creating our Node.js app shows the app starting up. On this page, we will also see some instructions for using a sample app and getting started. We are going to skip that in favor of the following steps:
 
-On this page, we will also see some instructions for using a sample app and getting started. We are going to skip that in favor of the following steps:
+## Prepare our app and local environment
 
-## Create our `manifest.yml` file
+We can now switch back to the terminal and our editor to get our local environment prepped and our application set up.
 
-Let's go into the root of our Node.js application and create a `manifest.yml` file and add the following information, changing "name" to the name we chose when creating the Cloud Foundry app.
+### Create our `manifest.yml` file
+
+Let's go into the root of our LoopBack application and create a `manifest.yml` file and add the following information, changing "name" to the name we chose when creating the Cloud Foundry app.
 
 It should look something like so:
 
-```
+```yaml
 ---
 applications:
- - name: band-aid
+ - name: band-app
    random-route: true
    memory: 256M
 ```
 
-## Get Cloud Foundry
+### Get Cloud Foundry
 
-At this point, we are going to begin using the Cloud Foundry cli. It is required that we install this toolkit before going further.
+At this point, we are going to begin using the Cloud Foundry cli, so we'll need to get that installed before going further.
 
 The most common way of installing Cloud Foundry on a Mac is to use Homebrew:
 
-```
+```bash
 $ brew tap cloudfoundry/tap
 $ brew install cf-cli
 ```
 
-To find instructions for other platforms, see [this page](https://github.com/cloudfoundry/cli#downloads)
+To find instructions for other platforms, see [Cloud Foundry CLI downloads page](https://github.com/cloudfoundry/cli#downloads)
 
-## Login `cf login`
+### Login `cf login`
 
 The first thing we need to do is log in. Doing so, it will prompt us for email, password, organization and space.
 
 In the terminal, let's run `cf login`:
 
-```
-➜  band-aid git:(master) ✗ cf login
+```bash
+➜  band-app git:(master) ✗ cf login
 API endpoint: https://api.ng.bluemix.net
 
 Email> joesepi@ibm.com
@@ -68,92 +69,65 @@ Select an org (or press enter to skip):
 1. StrongLoop Evangelists Org
 2. Some Total
 
-Org> 2
-Targeted org Some Total
+Org> 1
+Targeted org StrongLoop Evangelists Org
 
 Select a space (or press enter to skip):
-1. dev-unkempt
-2. BMLabs-PROD
-3. dev
-4. eventquarry-dev
-5. Band-Aid
+1. dev
+2. acme-freight
+3. Band App
 
-Space> 5
-Targeted space Band-Aid
-
+Space> 3
+Targeted space Band App
 
 
 API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
 User:           joesepi@ibm.com
-Org:            Some Total
-Space:          Band-Aid
+Org:            StrongLoop Evangelists Org
+Space:          Band App
 ```
 
 Looks like we were successful.
 
-## Set Region `cf api`
+## Deploy!
 
-Now we need to set the region for Bluemix. There are only 3, so we just need to match it up with the region our Org/Space is using in Bluemix. Here are the three options:
-
-|API endpoint                   |Region
-|---                            |---
-|https://api.ng.bluemix.net	|US South
-|https://api.eu-gb.bluemix.net	|United Kingdom
-|https://api.au-syd.bluemix.net	|Sydney
-
-The region that I am using is US South, so you will see that set below (and also in the output above).
-
-In the terminal, let's run `cf api <your-region-api>`:
-
-```
-➜  band-aid git:(master) ✗ cf api https://api.ng.bluemix.net
-Setting api endpoint to https://api.ng.bluemix.net...
-OK
-
-
-API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
-User:           joesepi@ibm.com
-Org:            Some Total
-Space:          Band-Aid
-```
-
-## Push our code `cf push`
+### Push our code `cf push`
 
 We can push our code to Bluemix by running the `cf push` command. Doing so will use our `manifest.yml` file and the settings we have just chosen to deploy our app in the cloud.
 
-```
-➜  band-aid git:(master) ✗ cf push
-Using manifest file /Users/joesepi/code/workshop-band-app/band-aid/manifest.yml
+```bash
+➜  band-app git:(master) ✗ cf push
+Using manifest file /Users/joesepi/code/band-app/manifest.yml
 
-Updating app band-aid in org Some Total / space Band-Aid as joesepi@ibm.com...
+Updating app Band-App in org StrongLoop Evangelists Org / space Band App as joesepi@ibm.com...
 OK
 
-Uploading band-aid...
-Uploading app files from: /Users/joesepi/code/workshop-band-app/band-aid
-Uploading 10.7M, 10822 files
+Uploading band-app...
+Uploading app files from: /Users/joesepi/code/band-app
+Uploading 11.1M, 11337 files
 Done uploading
 OK
 
-Stopping app band-aid in org Some Total / space Band-Aid as joesepi@ibm.com...
+Stopping app band-app in org StrongLoop Evangelists Org / space Band App as joesepi@ibm.com...
 OK
 
-Starting app band-aid in org Some Total / space Band-Aid as joesepi@ibm.com...
-Downloading liberty-for-java_v3_5-20161114-1152...
+Starting app band-app in org StrongLoop Evangelists Org / space Band App as joesepi@ibm.com...
 ```
 
 Beyond this, there is a lot of output about things downloading and such, but after the app is prepared and then started, we will something along these lines in your terminal:
 
 ```
-Exit status 0
 Staging complete
+Exit status 0
 Uploading droplet, build artifacts cache...
 Uploading build artifacts cache...
 Uploading droplet...
-Uploaded build artifacts cache (11.9M)
-Uploaded droplet (28.6M)
-Destroying container
-Successfully destroyed container
+Uploaded build artifacts cache (12.2M)
+Uploaded droplet (29M)
+Uploading complete
 
+0 of 1 instances running, 1 starting
+0 of 1 instances running, 1 starting
 0 of 1 instances running, 1 starting
 1 of 1 instances running
 
@@ -162,36 +136,38 @@ App started
 
 OK
 
-App band-aid was started using this command `./vendor/initial_startup.rb`
+App band-app was started using this command `./vendor/initial_startup.rb`
 
-Showing health and status for app band-aid in org Some Total / space Band-Aid as joesepi@ibm.com...
+Showing health and status for app band-app in org StrongLoop Evangelists Org / space Band App as joesepi@ibm.com...
 OK
 
 requested state: started
 instances: 1/1
 usage: 256M x 1 instances
-urls: band-aid.mybluemix.net
-last uploaded: Tue Feb 28 22:15:28 UTC 2017
+urls: Band-App.mybluemix.net
+last uploaded: Tue Apr 18 03:27:35 UTC 2017
 stack: cflinuxfs2
-buildpack: SDK for Node.js(TM) (ibm-node.js-4.7.2, buildpack-v3.10-20170119-1146)
+buildpack: SDK for Node.js(TM) (ibm-node.js-4.8.0, buildpack-v3.11-20170303-1144)
 
      state     since                    cpu    memory           disk           details
-#0   running   2017-02-28 05:16:58 PM   0.0%   117.7M of 256M   140.4M of 1G
+#0   running   2017-04-17 11:29:22 PM   0.0%   123.9M of 256M   144.1M of 1G
 ```
 
-At this point, our app is in the cloud and we can visit the app at the urls stated in the output above: `urls: band-aid.mybluemix.net` (*your url may be slightly different*)
+At this point, our app is in the cloud and we can visit the app at the urls stated in the output above: `urls: band-app.mybluemix.net` (*your url may be slightly different*)
 
-## Show our app status `cf apps`
+### Show our app status `cf apps`
 
 And at any point, we can check our apps by running `cf apps`. The output should looks something like:
 
-```
-➜  band-aid git:(master) ✗ cf apps
-Getting apps in org Some Total / space Band-Aid as joesepi@ibm.com...
+```bash
+➜  band-app git:(master) ✗ cf apps
+Getting apps in org StrongLoop Evangelists Org / space Band App as joesepi@ibm.com...
 OK
 
 name       requested state   instances   memory   disk   urls
-band-aid   started           1/1         256M     1G     band-aid.mybluemix.net
+band-app   started           1/1         256M     1G     Band-App.mybluemix.net
 ```
+
+If we go to our [Band App on Bluemix](https://band-app.bluemix.net), we will see the status output that is the default for a LoopBack app. And if we view the [LoopBack Explorer for our API](https://band-app.bluemix.net/explorer)(`/explorer`), we should see the familiar interface.
 
 **Next Step:** [Connect a datasource](06-datasource.md)

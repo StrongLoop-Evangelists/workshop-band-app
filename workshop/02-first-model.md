@@ -13,7 +13,7 @@ _Note: `cd` into your working directory, if you haven't already._
 ? Enter the model name:
 ```
 
-We'll call our first model while building our marketplace app `album`.
+We'll call our first model while building our marketplace app `event`.
 
 _Note: models should be singular. The application handles plural naturally, as we'll see in an upcoming step._
 
@@ -23,8 +23,8 @@ LoopBack generalizes backend services such as databases, REST APIs, SOAP web ser
 A _connector_ enables LoopBack applications to use a given data source.  For more information, see [LoopBack core concepts - Data sources and connectors](http://loopback.io/doc/en/lb3/LoopBack-core-concepts.html#data-sources-and-connectors).
 
 ```
-? Enter the model name: album
-? Select the data-source to attach album to: (Use arrow keys)
+? Enter the model name: event
+? Select the data-source to attach event to: (Use arrow keys)
 ❯ db (memory)
   (no data-source)
 ```
@@ -38,8 +38,8 @@ _Note: An issue with using the in-memory data-source is that every time we shut 
 ### Select model's base class:
 
 ```
-? Enter the model name: album
-? Select the data-source to attach album to: db (memory)
+? Enter the model name: event
+? Select the data-source to attach event to: db (memory)
 ? Select model's base class (Use arrow keys)
   Model
 ❯ PersistedModel
@@ -56,10 +56,10 @@ The base class for a model is the object that this model will extend from. There
 ### Expose `<model>` via the REST API?
 
 ```
-? Enter the model name: album
-? Select the data-source to attach album to: db (memory)
+? Enter the model name: event
+? Select the data-source to attach event to: db (memory)
 ? Select model's base class PersistedModel
-? Expose album via the REST API? (Y/n)
+? Expose event via the REST API? (Y/n)
 ```
 
 There may be reasons for keeping an endpoint private, but for the sake of this workshop, we will expose our REST API endpoints for public consumption. We will look at securing endpoints later in the workshop.
@@ -67,22 +67,22 @@ There may be reasons for keeping an endpoint private, but for the sake of this w
 ### Custom plural form
 
 ```
-? Enter the model name: album
-? Select the data-source to attach album to: db (memory)
+? Enter the model name: event
+? Select the data-source to attach event to: db (memory)
 ? Select model's base class PersistedModel
-? Expose album via the REST API? Yes
+? Expose event via the REST API? Yes
 ? Custom plural form (used to build REST URL):
 ```
 
-LoopBack is very smart about handling plural forms of a model. In this case, `album` is easily made plural as `albums`, but it can also handle other common plurals such as `child` to `children` and `mouse` to `mice`. If you have an unconventional model name that isn't easily made plural by adding an `s` then you may need to take advantage of this feature. Most of the time, you can let LoopBack do its magic.
+LoopBack is very smart about handling plural forms of a model. In this case, `event` is easily made plural as `events`, but it can also handle other common plurals such as `child` to `children` and `mouse` to `mice`. If you have an unconventional model name that isn't easily made plural by adding an `s` then you may need to take advantage of this feature. Most of the time, you can let LoopBack do its magic.
 
 ### Common model or server only?
 
 ```
-? Enter the model name: album
-? Select the data-source to attach album to: db (memory)
+? Enter the model name: event
+? Select the data-source to attach event to: db (memory)
 ? Select model's base class PersistedModel
-? Expose album via the REST API? Yes
+? Expose event via the REST API? Yes
 ? Custom plural form (used to build REST URL):
 ? Common model or server only? (Use arrow keys)
 ❯ common
@@ -98,18 +98,18 @@ Now that we have our model configuration in place, we will move on to specific m
 ### Model property: name
 
 ```
-Let's add some album properties now.
+Let's add some event properties now.
 
 Enter an empty property name when done.
 ? Property name:
 ```
 
-We will begin with the `title` property.
+We will begin with the `venue` property.
 
 ### Model property: type
 
 ```
-? Property name: title
+? Property name: venue
    invoke   loopback:property
 ? Property type: (Use arrow keys)
 ❯ string
@@ -122,18 +122,18 @@ We will begin with the `title` property.
 (Move up and down to reveal more choices)
 ```
 
-The type of our `title` property will be `string` in this case, but as we can see, there are many options. Having the type set for our properties is important when doing validation, which we will visit later.
+The type of our `venue` property will be `string` in this case, but as we can see, there are many options. Having the type set for our properties is important when doing validation, which we will visit later.
 
 ### Model property: required
 
 ```
-? Property name: title
+? Property name: venue
    invoke   loopback:property
 ? Property type: string
 ? Required? (y/N)
 ```
 
-We will make our `title` property required as it is an important piece of information.
+We will not make our `venue` property required. In fact, for now, we won't make any of properties required, but we will look at how to update any of our properties directly in the configuration.
 
 ### Model property: default value
 
@@ -141,66 +141,143 @@ We will make our `title` property required as it is an important piece of inform
 ? Property name: title
    invoke   loopback:property
 ? Property type: string
-? Required? Yes
+? Required? No
 ? Default value[leave blank for none]:
 ```
 
-We will leave our default value blank here. If the property were not required, we might put a default value in for when it is not submitted.
+We will leave our default value blank here, but adding something like "TBD" would work as well.
 
 ### Next model property
 
-As we can see from the terminal output, when we are done, we can simply hit `Enter` when prompted for another property. In our case though, we have a few more properties to add. Here is the output from adding all of our model's properties:
-
 ```
-Let's add some album properties now.
-
-Enter an empty property name when done.
 ? Property name: title
    invoke   loopback:property
 ? Property type: string
-? Required? Yes
+? Required? No
 ? Default value[leave blank for none]:
 
-Let's add another album property.
+Let's add another event property.
 Enter an empty property name when done.
-? Property name: year
+? Property name:
+```
+
+As we can see from the terminal output above: when we are done adding properties, we can simply hit `Enter` when prompted for another property. In our case though, we have a few more properties to add, which I've outlined below.
+
+#### Our event properties at a glance:
+
+**All**: not required, no default value.
+
+1. **location**: type: `string`
+1. **date**: type: `date`
+1. **cost**: type: `number`
+1. **lineup**: type: `array` of `string`s
+1. **location**: type: `string`
+1. **poster**: type: `string`
+1. **url**: type: `string`
+1. **city**: type: `string`
+1. **state**: type: `string`
+1. **description**: type: `string`
+1. **age-restriction**: type: `string`
+
+*Note: if we aren't so inclined to add so many properties, we can just do 1-4 and leave out 5-11. The first four properties give us a variety of property types and I've included the remaining properties to keep the workshop in sync with the app's codebase.*
+
+Here is the output from adding all of our model's properties:
+
+```
+➜  band-app git:(master) lb model
+? Enter the model name: event
+? Select the data-source to attach event to: db (memory)
+? Select model's base class PersistedModel
+? Expose event via the REST API? Yes
+? Custom plural form (used to build REST URL):
+? Common model or server only? common
+Let's add some event properties now.
+
+Enter an empty property name when done.
+? Property name: venue
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another event property.
+Enter an empty property name when done.
+? Property name: date
+   invoke   loopback:property
+? Property type: date
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another event property.
+Enter an empty property name when done.
+? Property name: cost
    invoke   loopback:property
 ? Property type: number
 ? Required? No
 ? Default value[leave blank for none]:
 
-Let's add another album property.
+Let's add another event property.
 Enter an empty property name when done.
-? Property name: label
-   invoke   loopback:property
-? Property type: string
-? Required? No
-? Default value[leave blank for none]:
-
-Let's add another album property.
-Enter an empty property name when done.
-? Property name: artwork
-   invoke   loopback:property
-? Property type: string
-? Required? No
-? Default value[leave blank for none]:
-
-Let's add another album property.
-Enter an empty property name when done.
-? Property name: tracks
+? Property name: lineup
    invoke   loopback:property
 ? Property type: array
-? The type of array items: object
+? The type of array items: string
 ? Required? No
 ? Default value[leave blank for none]:
 
-Let's add another album property.
+Let's add another event property.
+Enter an empty property name when done.
+? Property name: poster
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another event property.
+Enter an empty property name when done.
+? Property name: url
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another event property.
+Enter an empty property name when done.
+? Property name: city
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another event property.
+Enter an empty property name when done.
+? Property name: state
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another event property.
+Enter an empty property name when done.
+? Property name: description
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another event property.
+Enter an empty property name when done.
+? Property name: age-restriction
+   invoke   loopback:property
+? Property type: string
+? Required? No
+? Default value[leave blank for none]:
+
+Let's add another event property.
 Enter an empty property name when done.
 ? Property name:
 ```
 
-_Note: we need our 'tracks' property to be an array. In doing so, LoopBack asked us what type of items will be in our array._
-
-Once we are done adding our properties, we hit `Enter` and the CLI will exit.
+Now that we are done adding our properties to the `event` model, let's take a look at what LoopBack generated from our command line interactions.
 
 **Next Step:** [Model files: config and hooks](03-model-files.md)
