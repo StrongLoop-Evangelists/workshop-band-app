@@ -9,7 +9,7 @@ _Note: `cd` into your working directory, if you haven't already._
 ### Enter the name of your model
 
 ```
-➜  band-aid git:(master) ✗ lb model
+➜  band-app git:(master) ✗ lb model
 ? Enter the model name:
 ```
 
