@@ -1,5 +1,10 @@
 # Deploy
 
+🖥 To see the code for this step, here is [commit/diff](https://github.com/StrongLoop-Evangelists/band-app/commit/b065a8854831c44371aa2c49bc9f365ffd6f2b68
+).
+
+---
+
 A LoopBack app is simply a Node.js app. For our purposes, we will deploy our code to [Bluemix](https://bluemix.net), IBM's PaaS (platform as a service), but we could deploy it wherever Node.js is supported. If we were to deploy our app to a conventional server, we would need to make sure the tools were in place to keep our app running and able to handle any sort of load it may need to withstand. Fortunately, Bluemix handles all of that for us. And we can use their Cloud Foundry tools to configure and manage the deployment.
 
 ## Create Node.js Cloud Foundry app:
@@ -29,11 +34,8 @@ Let's go into the root of our LoopBack application and create a `manifest.yml` f
 It should look something like so:
 
 ```yaml
----
-applications:
- - name: band-app
-   random-route: true
-   memory: 256M
+name: Band-App
+memory: 256M
 ```
 
 ### Get Cloud Foundry

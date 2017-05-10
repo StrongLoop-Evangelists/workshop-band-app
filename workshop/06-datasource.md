@@ -1,5 +1,9 @@
 # Connect to a data-source
 
+🖥 To see the code for this step, here is [commit/diff](https://github.com/StrongLoop-Evangelists/band-app/commit/a2c5667cd21ed92f6e5c1f95e3c5e0da43a12dda).
+
+---
+
 In this step, we are going to instantiate a Cloudant DB and connect it to our application. While we will be using a hosted Cloudant DB, most data-sources can be connected in a similar way.
 
 ## Cloudant DB on Bluemix

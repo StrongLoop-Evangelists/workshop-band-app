@@ -1,5 +1,9 @@
 # Working with credentials
 
+🖥 To see the code for this step, here is [commit/diff](https://github.com/StrongLoop-Evangelists/band-app/commit/a2c5667cd21ed92f6e5c1f95e3c5e0da43a12dda).
+
+---
+
 As outlined in the previous step: putting our username and password in our code to be committed to a public repository, makes our application vulnerable. Let's look at how we can alleviate this issue.
 
 ## Our approach
@@ -136,6 +140,20 @@ module.exports = DATASOURCES;
 ```
 
 Above, we are simply getting our data-sources object from the `env.js` file and it works for both local and production. Huzzah!
+
+### Future tweak
+
+Once `loopback-boot` (one of LoopBack's dependencies) v3 is released, we could just use `datasources.js` and not need two different environment-based files, which are both identical in our case.
+
+We would need to:
+
+- check if `loopback-boot` v3 is released: [check here](https://www.npmjs.com/package/loopback-boot)
+- if so, we can install it directly: `npm install loopback-boot@3.0.0 --save`
+- eventually LoopBack will expose this functionality to all apps without having to manually update `loopback-boot`
+
+Feel free to tweet at me to check the above and update the workshop if there have been developments: [@joe_sepi](https://twitter.com/joe_sepi)
+
+---
 
 Okay, now that we have our secrets hidden, let's move on.
 

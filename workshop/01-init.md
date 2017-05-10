@@ -1,7 +1,10 @@
-🎦 You can view a video walkthrough of this step here: [Initializing a LoopBack application](https://www.youtube.com/watch?v=6hFKR5YKrec&list=PLxGLihicw5Woe3SV9MCFooTdrI9eOmj54&index=3)
-
 # Let's initialize our LoopBack application
 
+🎦 You can view a video walkthrough of this step here: [Initializing a LoopBack application](https://www.youtube.com/watch?v=6hFKR5YKrec&list=PLxGLihicw5Woe3SV9MCFooTdrI9eOmj54&index=3)
+
+🖥 To see the code for this step, here is [commit/diff](https://github.com/StrongLoop-Evangelists/band-app/commit/e488c9cda9966ce3f4dfd6a5a8e67cc813494db0).
+
+---
 
 We can initialize a LoopBack application in our terminal by typing `lb` or `lb app` and this will invoke the generator. The generator will go through a series of prompts to scaffold our LoopBack application. Let's get started.
 

@@ -1,5 +1,9 @@
 # Create our first model-driven API endpoint
 
+🖥 To see the code for this step, here is [commit/diff](https://github.com/StrongLoop-Evangelists/band-app/commit/3137aa04dce8caf6589c65032d3cfb8e3e5e1924).
+
+---
+
 LoopBack takes a model-driven approach to building out APIs. Based on our responses to the command line prompts, it will create a JSON file with our model schema and details.  For an introduction to LoopBack models see [LoopBack core concepts -  Models](http://loopback.io/doc/en/lb3/LoopBack-core-concepts.html#models) in the LoopBack documentation.
 
 To invoke the generator, we type `lb model` and go through the list of prompts.
