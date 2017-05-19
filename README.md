@@ -1,7 +1,5 @@
 # Workshop: Band-App
 
-_WIP_
-
 Workshop to build an app to help bands
 
 ## Prerequisites
