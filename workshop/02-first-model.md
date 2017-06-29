@@ -171,7 +171,7 @@ As we can see from the terminal output above: when we are done adding properties
 
 **All**: not required, no default value.
 
-1. **location**: type: `string`
+1. **title**: type: `string`
 1. **date**: type: `date`
 1. **cost**: type: `number`
 1. **lineup**: type: `array` of `string`s
