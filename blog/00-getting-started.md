@@ -38,8 +38,8 @@ We can initialize a LoopBack application in our terminal by typing `lb` or `lb a
 ### What's the name of your application?
 
 ```
-➜  workshop-band-app git:(master) lb
-? What's the name of your application? (workshop-band-app)
+$ lb
+? What's the name of your application? (work-folder-name)
 ```
 
 The first step is to name our application. Let's call it: `band-app`.
