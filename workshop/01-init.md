@@ -70,7 +70,7 @@ We will choose the default option as it is useful to have a built-in User model 
 
 _Note: As alluded to above, it is best practice to extend base models such as `User` rather than using them directly. If we have multiple objects extending from a base model and we modify a base model, there may be adverse effects on all the models extending it._
 
-_Protip: in the command line, type `j` or `k` or &uarr; and &darr; to navigate up or down._
+_Pro tip: in the command line, type `j` or `k` or &uarr; and &darr; to navigate up or down._
 
 ### Scaffolding application and running `npm install`
 
@@ -122,6 +122,4 @@ Next steps:
     $ node .
 ```
 
-At this point, our application is initialized and the terminal outputs some helpful next steps to continue development. Let's jump right in and create our first model-driven API endpoint.
-
-**Next Step:** [Create our first model](02-first-model.md)
+At this point, our application is initialized and the terminal outputs some helpful next steps to continue development. In our next post, we will [Create our first model](02-first-model.md)
