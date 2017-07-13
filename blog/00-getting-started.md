@@ -1,11 +1,11 @@
-# Let's build a band app! (part 1 of many)
+# Let's Build a Band App with LoopBack! (part 1 of many)
 
 In this series, we will work through building an application to support the needs of DIY bands. We'll start out solving some basic problems and move into more complex ground, eventually transforming the application into a platform that others can use and build upon.
 
 There is a [corresponding workshop](https://github.com/StrongLoop-Evangelists/workshop-band-app) as well as a [code repository](https://github.com/StrongLoop-Evangelists/band-app).
 
 🖥 To see the code for this step, here is [commit/diff](https://github.com/StrongLoop-Evangelists/band-app/commit/e488c9cda9966ce3f4dfd6a5a8e67cc813494db0).
-
+<!--more-->
 #### Corresponding Video
 
 🎦 [What is LoopBack: a demo and how to get started](https://youtu.be/Llr18lNuYIo?list=PLxGLihicw5Woe3SV9MCFooTdrI9eOmj54)
@@ -29,7 +29,7 @@ In this episode, we will install our prerequisites, get an understanding of what
 
 **_LoopBack is so awesome, it is almost magical. Let me show you by building an API in 73 seconds:_**
 
-[![Rapid APIs in LoopBack](../workshop/assets/video.png)](https://youtu.be/iOMD27DjuO4 "Rapid APIs in LoopBack")
+[![Rapid APIs in LoopBack](https://strongloop.com/blog-assets/2017/band-app/rapid-apis-in-lb-video.png)](https://youtu.be/iOMD27DjuO4 "Rapid APIs in LoopBack")
 
 ## Let's initialize our LoopBack application
 
@@ -38,8 +38,8 @@ We can initialize a LoopBack application in our terminal by typing `lb` or `lb a
 ### What's the name of your application?
 
 ```
-➜  workshop-band-app git:(master) lb
-? What's the name of your application? (workshop-band-app)
+$ lb
+? What's the name of your application? (work-folder-name)
 ```
 
 The first step is to name our application. Let's call it: `band-app`.
@@ -149,8 +149,7 @@ Next steps:
     $ node .
 ```
 
-At this point, our application is initialized and the terminal outputs some helpful next steps to continue development. We can run our node app with `node .` and it will output a timestamp letting us know it is working properly
+At this point, our application is initialized and the terminal outputs some helpful next steps to continue development. We can run our node app with `node .` and it will output, two URLs: one which will take us to the root of our app and one which takes us to our API explorer. There won't be much at the explorer yet, but we will 'explore' that later (sorry for the pun), but if we go to the root of our application, we will see a timestamp letting us know it is working properly. The code that gets the timestamp and outputs it in the browser in our `server/server.js` file. Until next time, you can check out that server file and see that it looks very much like an Express server (remember, Express underpins a LoopBack application.) We may also take a look at the `config.json` file, which contains some of the configuration for our application, such as our API root, the host and port information. Feel free to poke around further.
 
 In the next episode, we will initialize our first endpoint which will be generated based on some questions about our data. It'll be fun, fast and easy! See you then.
-
 
