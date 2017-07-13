@@ -1,10 +1,23 @@
-# Create our first model-driven API endpoint
+# Let's Build a Band App with LoopBack: creating our first model-driven API endpoint (part 2 of many)
 
-🖥 To see the code for this step, here is [commit/diff](https://github.com/StrongLoop-Evangelists/band-app/commit/3137aa04dce8caf6589c65032d3cfb8e3e5e1924).
+In this series, we are working through building an application to support the needs of DIY bands. We'll start out solving some basic problems and move into more complex ground, eventually transforming the application into a platform that others can use and build upon.
 
----
+Accompanying this series is a [corresponding workshop](https://github.com/StrongLoop-Evangelists/workshop-band-app) as well as a [code repository](https://github.com/StrongLoop-Evangelists/band-app).
 
-LoopBack takes a model-driven approach to building out APIs. Based on our responses to the command line prompts, it will create a JSON file with our model schema and details.  For an introduction to LoopBack models see [LoopBack core concepts -  Models](http://loopback.io/doc/en/lb3/LoopBack-core-concepts.html#models) in the LoopBack documentation.
+🖥 To see the code for this step, here is the [commit/diff](https://github.com/StrongLoop-Evangelists/band-app/commit/3137aa04dce8caf6589c65032d3cfb8e3e5e1924) in the code repository. This will show you the changes from the last episode to this one.
+
+## Previously on _Let's build a band app!_
+
+In the [previous episode](https://strongloop.com/strongblog/2017-07-06-lets-build-a-band-app-loopback-pt1/), we installed our prerequisites, got an understanding of what LoopBack provides and initialized our LoopBack application.
+
+
+## In this episode
+
+We'll build out our first API endpoint!
+
+LoopBack takes a model-driven approach to building out APIs. Based on our responses to command line prompts, LoopBack will create a JSON file with our model schema and endpoint details.  For an introduction to LoopBack models see [LoopBack core concepts -  Models](http://loopback.io/doc/en/lb3/LoopBack-core-concepts.html#models) in the LoopBack documentation.
+
+### Let's get into it!
 
 To invoke the generator, we type `lb model` and go through the list of prompts.
 
@@ -13,7 +26,7 @@ _Note: `cd` into your working directory, if you haven't already._
 ### Enter the name of your model
 
 ```
-➜  band-app git:(master) ✗ lb model
+$  band-app git:(master) ✗ lb model
 ? Enter the model name:
 ```
 
@@ -93,7 +106,7 @@ LoopBack is very smart about handling plural forms of a model. In this case, `ev
   server
 ```
 
-We can choose to only have this model available to the server or we can make it available to the client as well. In an effort to be forward thinking, we will choose `common` in case we want to use the Angular SDK or any other client options in the future.
+We can choose to only have this model available to the server or we can make it available to the client as well. In an effort to be forward thinking, we will choose `common` in case we want to use one of the client SDKs or any other client options in the future.
 
 ## Let's add some properties now!
 
@@ -188,7 +201,7 @@ As we can see from the terminal output above: when we are done adding properties
 Here is the output from adding all of our model's properties:
 
 ```
-➜  band-app git:(master) lb model
+$  band-app git:(master) lb model
 ? Enter the model name: event
 ? Select the data-source to attach event to: db (memory)
 ? Select model's base class PersistedModel
@@ -284,4 +297,142 @@ Enter an empty property name when done.
 
 Now that we are done adding our properties to the `event` model, let's take a look at what LoopBack generated from our command line interactions.
 
-**Next Step:** [Model files: config and hooks](03-model-files.md)
+## Model config
+
+The CLI created the `event.json` file based on the answers we gave to prompts in the previous step. One impressive feature of LoopBack is that not only is the command line generator easy and quick to use, but the generated [Model definition file](http://loopback.io/doc/en/lb3/Model-definition-JSON-file.html) (this `event.json` file) is very easy to understand.
+
+`/models/common/event.json`
+
+```json
+{
+  "name": "event",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "location": {
+      "type": "string"
+    },
+    "date": {
+      "type": "date"
+    },
+    "cost": {
+      "type": "number"
+    },
+    "lineup": {
+      "type": [
+        "string"
+      ]
+    },
+    "poster": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "age-restriction": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
+```
+
+If we look at the configuration generated in this file, we see that it is all very readable and understandable.
+
+**Metadata and options:** These first few lines contain the name, our base model, whether id injection should be used (based on the type of data-source) and that we want to validate our model on upsert.
+
+**Properties:** The `properties` block is what was generated when we created our model based on the CLI prompts. If we decide later that we want a property to be required and a default value provided, we can just edit this file. It is very easy to get into the configuration and make our needed changes.
+
+**Additional options:** These final object keys have empty values. We can tell by their names what they may pertain to but we'll explore them later in the workshop.
+
+*Note: This file resides in the `models/common` directory; "common" indicates that LoopBack will expose this model to both the server and the client.*
+
+For complete documentation of the file, see [Model definition file](http://loopback.io/doc/en/lb3/Model-definition-JSON-file.html) in the LoopBack documentation.
+
+## Adding application logic
+
+There are three ways to add custom application logic to models:
+
+- [Remote methods](https://loopback.io/doc/en/lb3/Remote-methods.html) - REST endpoints mapped to Node functions.
+- [Remote hooks](https://loopback.io/doc/en/lb3/Remote-hooks.html) - Logic that triggers when a remote method is executed (before or after).
+- [Operation hooks](https://loopback.io/doc/en/lb3/Operation-hooks.html) - Logic triggered when a model performs create, read, update, and delete operations against a data source.
+
+For the sake of this workshop, we will simply look at adding a remote method, but if we needed other ways to add application logic, the approach is similar and we can get the details from the links above.
+
+#### Remote Method
+
+In LoopBack, a [remote method](https://loopback.io/doc/en/lb3/Remote-methods.html) is a model method that is exposed over a custom REST endpoint.
+The generator creates a corresponding JavaScript file for each model (in this case `event.js`) where we can add remote methods to our endpoint:
+
+`model/common/event.js`
+
+```javascript
+'use strict';
+
+module.exports = function(Event) {
+
+};
+```
+
+As you can see above, we have a simple function waiting for our additional application logic.
+
+#### Example remote method
+
+Below is [an example of a remote method from the LoopBack documentation](https://loopback.io/doc/en/lb3/Extend-your-API.html#add-a-remote-method) that adds an endpoint called `status` that returns whether the coffee shop is open or closed based on the time.
+
+```javascript
+module.exports = function(CoffeeShop) {
+  CoffeeShop.status = function(cb) {
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+    const response = (currentHour > 6 && currentHour < 20) ?
+      'We are open for business.' :
+      'Sorry, we are closed. Open daily from 6am to 8pm.'
+
+    cb(null, response);
+  };
+  CoffeeShop.remoteMethod('status', {
+      http: {path: '/status', verb: 'get'},
+      returns: {arg: 'status', type: 'string'}
+    }
+  );
+};
+```
+
+#### Example remote hook
+
+Below is an [example of a `beforeRemote` method that adds a timestamp](https://loopback.io/doc/en/lb3/Extend-your-API.html#add-a-remote-method) to a Review object before the create request is fulfilled.
+
+```javascript
+module.exports = function(Review) {
+  Review.beforeRemote('create', function(context, user, next) {
+    context.args.data.date = Date.now();
+    context.args.data.publisherId = context.req.accessToken.userId;
+    next();
+  });
+};
+```
+
+As we can see, this file allows us to hook into our application to do business logic or manipulate our data according to the needs of our application. Now let's see view our newly created `event` API in our explorer.
+
+At this point, we now have our first API endpoint and we've gotten some understanding about what code LoopBack has generated and how we can extend functionality based on our model. We can start up our Node app by typing `node .` in our terminal. From here, we can make requests to the endpoint either in the browser with a simple form or with some AJAX or perhaps through a tool like Postman or using cURL.
+
+In the next episode, we'll dive deeper into interacting with our API. We'll interact with the Swagger explorer we get for free with LoopBack. We'll look at making requests to our endpoints from various sources and how we can start to build applications making use of our new API.
+
+
+

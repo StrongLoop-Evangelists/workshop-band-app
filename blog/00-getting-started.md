@@ -1,18 +1,45 @@
-# Let's initialize our LoopBack application
+# Let's Build a Band App with LoopBack! (part 1 of many)
 
-🎦 You can view a video walkthrough of this step here: [Initializing a LoopBack application](https://www.youtube.com/watch?v=6hFKR5YKrec&list=PLxGLihicw5Woe3SV9MCFooTdrI9eOmj54&index=3)
+In this series, we will work through building an application to support the needs of DIY bands. We'll start out solving some basic problems and move into more complex ground, eventually transforming the application into a platform that others can use and build upon.
+
+There is a [corresponding workshop](https://github.com/StrongLoop-Evangelists/workshop-band-app) as well as a [code repository](https://github.com/StrongLoop-Evangelists/band-app).
 
 🖥 To see the code for this step, here is [commit/diff](https://github.com/StrongLoop-Evangelists/band-app/commit/e488c9cda9966ce3f4dfd6a5a8e67cc813494db0).
+<!--more-->
+#### Corresponding Video
 
----
+🎦 [What is LoopBack: a demo and how to get started](https://youtu.be/Llr18lNuYIo?list=PLxGLihicw5Woe3SV9MCFooTdrI9eOmj54)
+
+🎦 [Initializing a LoopBack application](https://www.youtube.com/watch?v=6hFKR5YKrec&list=PLxGLihicw5Woe3SV9MCFooTdrI9eOmj54&index=3)
+
+
+## Previously on _Let's build a band app!_
+
+We are starting from scratch so there is no previously in this episode :) but we do have some prerequisites, the first being Node.js. We can easily install Node for our platform at the following website: [nodejs.org](https://nodejs.org).
+
+With Node, we get [npm](https://npmjs.org), the Node package manager. We will use npm to install our second prerequisite and that is LoopBack. Once we have Node installed, we can run `npm install -g loopback-cli`. This will install the LoopBack cli globally (`-g`) on our machine so we can initialize a LoopBack application in any directory on our computer.
+
+## In this episode
+
+In this episode, we will install our prerequisites, get an understanding of what LoopBack provides and initialize our LoopBack application.
+
+## What is LoopBack
+
+[LoopBack](http://loopback.io/) is an open-source framework to rapidly build RESTful APIs in Node.js.  It has a command line interface (CLI) tool that you can use to scaffold your application and build out your API layer based on your data (a model-driven approach). It isn't just fast and easy; it's also robust and extensible. It is built on top of Express, so it has widely-used and battle-tested foundation.
+
+**_LoopBack is so awesome, it is almost magical. Let me show you by building an API in 73 seconds:_**
+
+[![Rapid APIs in LoopBack](https://strongloop.com/blog-assets/2017/band-app/rapid-apis-in-lb-video.png)](https://youtu.be/iOMD27DjuO4 "Rapid APIs in LoopBack")
+
+## Let's initialize our LoopBack application
 
 We can initialize a LoopBack application in our terminal by typing `lb` or `lb app` and this will invoke the generator. The generator will go through a series of prompts to scaffold our LoopBack application. Let's get started.
 
 ### What's the name of your application?
 
 ```
-➜  workshop-band-app git:(master) lb
-? What's the name of your application? (workshop-band-app)
+$ lb
+? What's the name of your application? (work-folder-name)
 ```
 
 The first step is to name our application. Let's call it: `band-app`.
@@ -70,7 +97,7 @@ We will choose the default option as it is useful to have a built-in User model 
 
 _Note: As alluded to above, it is best practice to extend base models such as `User` rather than using them directly. If we have multiple objects extending from a base model and we modify a base model, there may be adverse effects on all the models extending it._
 
-_Pro tip: in the command line, type `j` or `k` or &uarr; and &darr; to navigate up or down._
+_Protip: in the command line, type `j` or `k` or &uarr; and &darr; to navigate up or down._
 
 ### Scaffolding application and running `npm install`
 
@@ -122,6 +149,7 @@ Next steps:
     $ node .
 ```
 
-At this point, our application is initialized and the terminal outputs some helpful next steps to continue development. Our next step is to jump in and create our first model-driven API endpoint.
+At this point, our application is initialized and the terminal outputs some helpful next steps to continue development. We can run our node app with `node .` and it will output, two URLs: one which will take us to the root of our app and one which takes us to our API explorer. There won't be much at the explorer yet, but we will 'explore' that later (sorry for the pun), but if we go to the root of our application, we will see a timestamp letting us know it is working properly. The code that gets the timestamp and outputs it in the browser in our `server/server.js` file. Until next time, you can check out that server file and see that it looks very much like an Express server (remember, Express underpins a LoopBack application.) We may also take a look at the `config.json` file, which contains some of the configuration for our application, such as our API root, the host and port information. Feel free to poke around further.
 
-**Next Step:** [Create our first model](02-first-model.md)
+In the next episode, we will initialize our first endpoint which will be generated based on some questions about our data. It'll be fun, fast and easy! See you then.
+
