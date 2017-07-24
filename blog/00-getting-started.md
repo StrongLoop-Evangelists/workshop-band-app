@@ -29,7 +29,7 @@ In this episode, we will install our prerequisites, get an understanding of what
 
 **_LoopBack is so awesome, it is almost magical. Let me show you by building an API in 73 seconds:_**
 
-[![Rapid APIs in LoopBack](https://strongloop.com/blog-assets/2017/band-app/rapid-apis-in-lb-video.png)](https://youtu.be/iOMD27DjuO4 "Rapid APIs in LoopBack")
+[![Rapid APIs in LoopBack](../workshop/assets/video.png)](https://youtu.be/iOMD27DjuO4 "Rapid APIs in LoopBack")
 
 ## Let's initialize our LoopBack application
 
