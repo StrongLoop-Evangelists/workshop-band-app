@@ -4,7 +4,7 @@
 
 The CLI created the `event.json` file based on the answers we gave to prompts in the previous step. One impressive feature of LoopBack is that not only is the command line generator easy and quick to use, but the generated [Model definition file](http://loopback.io/doc/en/lb3/Model-definition-JSON-file.html) (this `event.json` file) is very easy to understand.
 
-`/common//common/event.json`
+`/common/models/event.json`
 
 ```json
 {
