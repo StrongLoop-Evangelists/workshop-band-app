@@ -1,4 +1,4 @@
-# Let's Build a Band App with LoopBack: exploring our api (part 3 of many)
+# Let's Build a Band App with LoopBack: Exploring Our API (part 3 of many)
 
 In this series, we are working through building an application to support the needs of DIY bands. We'll start out solving some basic problems and move into more complex ground, eventually transforming the application into a platform that others can use and build upon.
 
